@@ -58,4 +58,48 @@ Reserved for automated testing and validation.
 
 The project follows a modular architecture.
 
-- Client: Responsible for
+- Client: Handles frontend presentation and user interactions.
+- Server: Handles backend processing and API operations.
+- Tests: Validates application functionality.
+- Docs: Maintains project and audit documentation.
+
+## 7. Testing Strategy
+
+The project uses accessibility checks and functional validation.
+
+Planned testing includes:
+
+- Keyboard navigation testing.
+- Accessibility validation.
+- UI testing.
+- API testing when backend functionality is implemented.
+
+## 8. Local Setup
+
+### Prerequisites
+
+- Git
+- Visual Studio Code
+- Google Chrome
+
+### Clone the Repository
+
+git clone https://github.com/poojachithiraiselvan/accessibility-audit.git
+
+### Open the Project
+
+cd accessibility-audit
+
+Note: Client and server setup commands will be added when their implementations are created.
+
+## 9. Future Implementation Plan
+
+- Develop the frontend application.
+- Implement backend services.
+- Add automated accessibility tests.
+- Improve keyboard navigation and screen reader support.
+- Maintain project documentation.
+
+## 10. Expected Outcome
+
+The expected outcome is a well-organized, accessible, and maintainable full-stack project foundation supported by documented audit findings, screenshots, and architecture documentation.
