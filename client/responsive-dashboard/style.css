@@ -1,0 +1,222 @@
+
+/* DESIGN TOKENS */
+
+:root {
+    --primary: #6c63ff;
+    --primary-dark: #5148d9;
+    --secondary: #00bfa6;
+
+    --bg: #f4f6fc;
+    --surface: rgba(255, 255, 255, 0.8);
+    --text: #252746;
+    --muted: #777b96;
+
+    --font-small: 14px;
+    --font-medium: 18px;
+    --font-large: 28px;
+    --font-heading: 36px;
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+
+    --radius-small: 8px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+
+    --shadow: 0 8px 25px rgba(40, 45, 90, 0.08);
+}
+
+/* DARK THEME */
+
+.dark-theme {
+    --bg: #17182b;
+    --surface: rgba(42, 43, 67, 0.85);
+    --text: #ffffff;
+    --muted: #c1c2d4;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* GLOBAL STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-3) 6%;
+    background: var(--surface);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: var(--shadow);
+}
+
+.header h1 {
+    color: var(--primary);
+    font-size: var(--font-large);
+}
+
+.theme-toggle {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* DASHBOARD */
+
+.dashboard {
+    width: min(1200px, 100%);
+    margin: auto;
+    padding: var(--space-4) 6%;
+}
+
+.welcome {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 40px;
+    border-radius: var(--radius-large);
+    margin-bottom: var(--space-4);
+}
+
+.welcome h2 {
+    font-size: var(--font-heading);
+    margin-bottom: var(--space-1);
+}
+
+/* RESPONSIVE GRID */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.card,
+.activity {
+    background: var(--surface);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: var(--radius-medium);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 0;
+}
+
+.card:hover,
+.activity:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(40, 45, 90, 0.15);
+}
+
+.card h3 {
+    color: var(--muted);
+    font-size: var(--font-small);
+    margin-bottom: var(--space-2);
+}
+
+.card p {
+    font-size: var(--font-heading);
+    font-weight: bold;
+    color: var(--primary);
+    overflow-wrap: anywhere;
+}
+
+.activity h2 {
+    margin-bottom: var(--space-2);
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: var(--space-3);
+    color: var(--muted);
+}
+
+/* MOBILE - 320px */
+
+@media (max-width: 767px) {
+    .header {
+        padding: var(--space-2);
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .dashboard {
+        padding: var(--space-2);
+    }
+
+    .welcome {
+        padding: var(--space-3);
+    }
+
+    .welcome h2 {
+        font-size: 26px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-2);
+    }
+}
+
+/* TABLET - 768px */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* DESKTOP - 1024px */
+
+@media (min-width: 1024px) {
+    .stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* LARGE DESKTOP - 1440px */
+
+@media (min-width: 1440px) {
+    .dashboard {
+        max-width: 1400px;
+    }
+}
