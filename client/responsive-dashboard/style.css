@@ -26,6 +26,7 @@
     --radius-large: 24px;
 
     --shadow: 0 8px 25px rgba(40, 45, 90, 0.08);
+    --hover-shadow: 0 12px 30px rgba(40, 45, 90, 0.15);
 }
 
 /* DARK THEME */
@@ -35,7 +36,9 @@
     --surface: rgba(42, 43, 67, 0.85);
     --text: #ffffff;
     --muted: #c1c2d4;
+
     --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    --hover-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* GLOBAL STYLES */
@@ -47,7 +50,7 @@
 }
 
 html {
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
 }
 
@@ -56,7 +59,7 @@ body {
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
     transition: background 0.3s, color 0.3s;
 }
 
@@ -98,7 +101,8 @@ body {
 /* DASHBOARD */
 
 .dashboard {
-    width: min(1200px, 100%);
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
     padding: var(--space-4) 6%;
 }
@@ -140,7 +144,7 @@ body {
 .card:hover,
 .activity:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(40, 45, 90, 0.15);
+    box-shadow: var(--hover-shadow);
 }
 
 .card h3 {
@@ -168,7 +172,7 @@ body {
     color: var(--muted);
 }
 
-/* MOBILE - 320px */
+/* MOBILE - 320px to 767px */
 
 @media (max-width: 767px) {
     .header {
@@ -197,7 +201,23 @@ body {
     }
 }
 
-/* TABLET - 768px */
+/* SMALL MOBILE - 320px */
+
+@media (max-width: 360px) {
+    .header h1 {
+        font-size: 19px;
+    }
+
+    .welcome h2 {
+        font-size: 23px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+}
+
+/* TABLET - 768px to 1023px */
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .stats {
@@ -208,6 +228,10 @@ body {
 /* DESKTOP - 1024px */
 
 @media (min-width: 1024px) {
+    .dashboard {
+        max-width: 1200px;
+    }
+
     .stats {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
@@ -218,5 +242,16 @@ body {
 @media (min-width: 1440px) {
     .dashboard {
         max-width: 1400px;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
